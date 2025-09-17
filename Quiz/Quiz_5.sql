@@ -419,18 +419,7 @@ JOIN Payment P ON B.BillID = P.BillID
 JOIN Customer C ON B.CustomerID = C.CustomerID;
 
 
--- 33. Create a UDF CalculateBill(units INT) that returns units*5 if units ≤ 200, else 200*5 + (units-200)*7.
-DELIMITER //
-CREATE FUNCTION CalculateBill(units INT)
-RETURNS INT
-DETERMINISTIC
-BEGIN
-  RETURN CASE 
-           WHEN units <= 200 THEN units * 5
-           ELSE (200 * 5) + ((units - 200) * 7)
-         END;
-END //
-DELIMITER ;
+
 
 
 
